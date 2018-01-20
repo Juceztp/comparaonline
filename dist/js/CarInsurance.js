@@ -8,6 +8,16 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+//Dependencies local
+var MediumCoverage = require('./business/medium-coverage.js').default;
+var FullCoverage = require('./business/full-coverage.js').default;
+var MegaCoverage = require('./business/mega-coverage.js').default;
+var SpecialFullCoverage = require('./business/special-full-coverage.js').default;
+var SuperSale = require('./business/super-sale.js').default;
+
+// Constants
+var COVERAGES = ['Full Coverage', 'Mega Coverage', 'Special Full Coverage', 'Super Sale'];
+
 var CarInsurance = function () {
 	function CarInsurance() {
 		var products = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -20,48 +30,54 @@ var CarInsurance = function () {
 	_createClass(CarInsurance, [{
 		key: 'updatePrice',
 		value: function updatePrice() {
-			for (var i = 0; i < this.products.length; i++) {
-				if (this.products[i].name != 'Full Coverage' && this.products[i].name != 'Special Full Coverage') {
-					if (this.products[i].price > 0) {
-						if (this.products[i].name != 'Mega Coverage') {
-							this.products[i].price = this.products[i].price - 1;
-						}
+			var _mediumCoverage = new MediumCoverage();
+			var _fullCoverage = new FullCoverage();
+			var _megaCoverage = new MegaCoverage();
+			var _specialFullCoverage = new SpecialFullCoverage();
+			var _superSale = new SuperSale();
+
+			var _iteratorNormalCompletion = true;
+			var _didIteratorError = false;
+			var _iteratorError = undefined;
+
+			try {
+				for (var _iterator = this.products[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+					var product = _step.value;
+
+
+					if (product.name === COVERAGES[0]) {
+						product.price = _fullCoverage.getPrice(product.price, product.sellIn);
 					}
-				} else {
-					if (this.products[i].price < 50) {
-						this.products[i].price = this.products[i].price + 1;
-						if (this.products[i].name == 'Special Full Coverage') {
-							if (this.products[i].sellIn < 11) {
-								if (this.products[i].price < 50) {
-									this.products[i].price = this.products[i].price + 1;
-								}
-							}
-							if (this.products[i].sellIn < 6) {
-								if (this.products[i].price < 50) {
-									this.products[i].price = this.products[i].price + 1;
-								}
-							}
-						}
+
+					if (product.name === COVERAGES[1]) {
+						product.price = _megaCoverage.getPrice();
 					}
+
+					if (product.name === COVERAGES[2]) {
+						product.price = _specialFullCoverage.getPrice(product.price, product.sellIn);
+					}
+
+					if (product.name === COVERAGES[3]) {
+						product.price = _superSale.getPrice(product.price);
+					}
+
+					if (COVERAGES.includes(product.name) === false) {
+						product.price = _mediumCoverage.getPrice(product.price, product.sellIn);
+					}
+
+					if (product.name !== COVERAGES[1]) product.sellIn = product.sellIn - 1;
 				}
-				if (this.products[i].name != 'Mega Coverage') {
-					this.products[i].sellIn = this.products[i].sellIn - 1;
-				}
-				if (this.products[i].sellIn < 0) {
-					if (this.products[i].name != 'Full Coverage') {
-						if (this.products[i].name != 'Special Full Coverage') {
-							if (this.products[i].price > 0) {
-								if (this.products[i].name != 'Mega Coverage') {
-									this.products[i].price = this.products[i].price - 1;
-								}
-							}
-						} else {
-							this.products[i].price = this.products[i].price - this.products[i].price;
-						}
-					} else {
-						if (this.products[i].price < 50) {
-							this.products[i].price = this.products[i].price + 1;
-						}
+			} catch (err) {
+				_didIteratorError = true;
+				_iteratorError = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion && _iterator.return) {
+						_iterator.return();
+					}
+				} finally {
+					if (_didIteratorError) {
+						throw _iteratorError;
 					}
 				}
 			}

@@ -10,7 +10,7 @@ const CarInsurance = require('../src/js/CarInsurance').default;
 const FULL_COVERAGE = 'Full Coverage';
 
 describe('Full Coverage', () => {
-	it('should sellIn be equal to 3', () => {
+	it('should sellIn be equal to 2', () => {
 		const _CarInsurance = new CarInsurance([new Product(FULL_COVERAGE, 3, 0)]);
 		const products = _CarInsurance.updatePrice();
 		expect(products[0].sellIn).equal(2);

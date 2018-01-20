@@ -3,16 +3,7 @@
 var Product = require('./Product.js').default;
 var CarInsurance = require('./CarInsurance.js').default;
 
-var productsAtDayZero = [
-//new Product('Medium Coverage', -1, 10),
-//new Product('Full Coverage', 3, 0),
-//new Product('Low Coverage', 5, 7),
-//new Product('Mega Coverage', 0, 80),
-//new Product('Mega Coverage', -1, 80),
-//new Product('Special Full Coverage', 15, 40),
-//new Product('Special Full Coverage', 10, 49),
-//new Product('Special Full Coverage', 5, 49),
-new Product('Super Sale', 3, 6)];
+var productsAtDayZero = [new Product('Medium Coverage', -1, 12), new Product('Medium Coverage', -1, 12), new Product('Medium Coverage', -1, 0), new Product('Medium Coverage', -1, -2), new Product('Full Coverage', 3, 0), new Product('Full Coverage', -1, 49), new Product('Mega Coverage', 10, 80), new Product('Mega Coverage', 0, 80), new Product('Mega Coverage', -1, 80), new Product('Special Full Coverage', 15, 40), new Product('Special Full Coverage', 10, 49), new Product('Special Full Coverage', 5, 49), new Product('Super Sale', 3, 6)];
 
 var carInsurance = new CarInsurance(productsAtDayZero);
 var productPrinter = function productPrinter(product) {

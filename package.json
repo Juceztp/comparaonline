@@ -7,7 +7,8 @@
     "test": "mocha --require babel-core/register",
     "js": "babel src/js --out-dir dist/js",
     "lint:js": "eslint src/js/**/*.js",
-    "after-30-days": "npm run js && node dist/js/index.js"
+    "after-30-days": "npm run js && node dist/js/index.js",
+    "dev": "npm run lint:js && npm run test && npm run js && node dist/js/index.js"
   },
   "repository": {
     "type": "git",

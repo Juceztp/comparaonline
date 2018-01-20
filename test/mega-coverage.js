@@ -22,7 +22,6 @@ describe('Mega Coverage', () => {
 		expect(products[0].price).equal(80);
 	});
 
-	// FIXME NO LET PRICES DIFF TO 80
 	it('should: price be 80 and it never alters', () => {
 		const _CarInsurance = new CarInsurance([new Product(MEGA_COVERAGE, -1, 90)]);
 		const products = _CarInsurance.updatePrice();

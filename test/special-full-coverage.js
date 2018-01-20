@@ -16,7 +16,7 @@ describe('Special Full Coverage', () => {
 		expect(products[0].sellIn).equal(14);
 	});
 
-	it('should price be equal to 19', () => {
+	it('should price be equal to 21', () => {
 		const _CarInsurance = new CarInsurance([new Product(SPECIAL_FULL_COVERAGE, 15, 20)]);
 		const products = _CarInsurance.updatePrice();
 		expect(products[0].price).equal(21);
