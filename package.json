@@ -4,7 +4,7 @@
   "description": "ComparaOnline Software Engineer Test",
   "main": "index.js",
   "scripts": {
-    "test": "mocha spec/*.js",
+    "test": "mocha --require babel-core/register",
     "js": "babel src/js --out-dir dist/js",
     "lint:js": "eslint src/js/**/*.js",
     "after-30-days": "npm run js && node dist/js/index.js"
