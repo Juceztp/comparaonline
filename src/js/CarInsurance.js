@@ -14,7 +14,11 @@ export default class CarInsurance {
 		this.products = products;
 	}
 
-	updatePrice() {
+	updatePrice(d) {
+
+		if (d === 0)
+			return this.products;
+
 		const _mediumCoverage = new MediumCoverage();
 		const _fullCoverage = new FullCoverage();
 		const _megaCoverage = new MegaCoverage();

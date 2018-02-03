@@ -29,7 +29,10 @@ var CarInsurance = function () {
 
 	_createClass(CarInsurance, [{
 		key: 'updatePrice',
-		value: function updatePrice() {
+		value: function updatePrice(d) {
+
+			if (d === 0) return this.products;
+
 			var _mediumCoverage = new MediumCoverage();
 			var _fullCoverage = new FullCoverage();
 			var _megaCoverage = new MegaCoverage();

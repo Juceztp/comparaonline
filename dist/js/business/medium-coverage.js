@@ -18,7 +18,7 @@ var MediumCoverage = function () {
 		value: function getPrice(price, sell) {
 			if (!price) return 0;
 
-			return sell > 10 ? price - 1 : price - 2;
+			return sell > 0 ? price - 1 : price - 2;
 		}
 	}]);
 

@@ -7,7 +7,7 @@ export default class MediumCoverage {
 		if (!price)
 			return 0;
 
-		return sell > 10 ?
+		return sell > 0 ?
 			price - 1 :
 			price - 2;
 	}

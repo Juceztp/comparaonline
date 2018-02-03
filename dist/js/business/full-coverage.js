@@ -18,7 +18,7 @@ var FullCoverage = function () {
 		value: function getPrice(price, sell) {
 			if (price > 49) return 50;
 
-			return sell < 0 ? price + 2 : price + 1;
+			return sell <= 0 ? price + 2 : price + 1;
 		}
 	}]);
 
